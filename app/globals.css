@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Stand-in for the licensed "Nexa Text Bold" font — swap the value below
+     to your real Nexa font-family once you send the licensed font files. */
+  --font-bebas: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #060606;
+  color: #F6F4EF;
+}
+
+::selection {
+  background-color: #C8102E;
+  color: #F6F4EF;
+}
+
+:focus-visible {
+  outline: 2px solid #C8102E;
+  outline-offset: 3px;
+}
+
+/* --- Signature motif: film sprocket rail ---
+   A thin strip of repeating perforations, like the edge of a film reel,
+   used as a section divider and hero border. Grounded in the subject:
+   this is a film distribution company. */
+.sprocket-rail {
+  height: 10px;
+  width: 100%;
+  background-image: radial-gradient(circle, rgba(246,244,239,0.35) 2px, transparent 2.4px);
+  background-size: 22px 10px;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+}
+
+.sprocket-rail-animated {
+  height: 10px;
+  width: 100%;
+  background-image: radial-gradient(circle, rgba(200,16,46,0.6) 2px, transparent 2.4px);
+  background-size: 22px 10px;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  animation: reel 6s linear infinite;
+}
+
+/* --- Signature motif: ticket-stub card ---
+   Cards throughout the site are shaped like admission tickets: a torn
+   perforation edge and a dashed tear-line, echoing the "ADMIT ONE" stub
+   of a cinema ticket. */
+.ticket-card {
+  position: relative;
+  background-color: #121212;
+  border: 1px solid rgba(246,244,239,0.08);
+  border-radius: 4px;
+}
+
+.ticket-card::before,
+.ticket-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-color: #060606;
+  border-radius: 999px;
+  border: 1px solid rgba(246,244,239,0.08);
+  z-index: 2;
+}
+
+.ticket-card::before {
+  left: -8px;
+}
+
+.ticket-card::after {
+  right: -8px;
+}
+
+.ticket-tear {
+  border-top: 2px dashed rgba(246,244,239,0.14);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: rgba(246, 244, 239, 0.65);
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(200,16,46,0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
